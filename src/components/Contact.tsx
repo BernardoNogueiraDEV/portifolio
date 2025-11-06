@@ -18,7 +18,7 @@ export default function Contact() {
     formData.append('message', message)
 
     try {
-      const response = await fetch('http://localhost/portifolio/send_email.php', {
+      const response = await fetch('https://nogueiradev-chi.vercel.app/send_email.php', {
         method: 'POST',
         body: formData,
       })
