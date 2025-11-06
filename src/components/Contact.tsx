@@ -12,15 +12,13 @@ export default function Contact() {
     e.preventDefault()
     setStatus('Enviando...')
 
-    const formData = new FormData()
-    formData.append('name', name)
-    formData.append('email', email)
-    formData.append('message', message)
-
     try {
-      const response = await fetch('https://nogueiradev-chi.vercel.app/send_email.php', {
+      const response = await fetch('/api/send_email', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
       })
 
       const result = await response.json()
