@@ -1,7 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 export default function Home() {
+  useEffect(() => {
+    const text = "Olá, eu sou Bernardo!";
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect(element: HTMLElement) {
+      if (!element) return;
+
+      if (!isDeleting && index < text.length) {
+        element.textContent = text.slice(0, index + 1);
+        index++;
+      } else if (isDeleting && index > 0) {
+        element.textContent = text.slice(0, index - 1);
+        index--;
+      }
+
+      if (index === text.length) {
+        setTimeout(() => {
+          isDeleting = true;
+        }, 3000);
+      } else if (index === 0) {
+        isDeleting = false;
+      }
+
+      const speed = isDeleting ? 50 : 100;
+      setTimeout(() => typeEffect(element), speed);
+    }
+
+    // Aguarda um pequeno tempo para o DOM estar 100% pronto
+    const timer = setTimeout(() => {
+      const element = document.getElementById('ola');
+      if (element) typeEffect(element);
+    }, 100);
+
+    return () => clearTimeout(timer); // limpa caso o componente seja desmontado
+  }, []);
+
   return (
     <section className="h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left px-6 gap-10">
       <motion.div
@@ -10,7 +47,7 @@ export default function Home() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl md:text-5xl font-bold mb-4" id='ola'></h1>
+        <h1 className="text-3xl md:text-5xl font-bold mb-4" id="ola"></h1>
         <h2 className="text-xl text-gray-300 mb-6">
           Desenvolvedor Web focado em soluções otimizadas e organizadas.
         </h2>
@@ -18,33 +55,3 @@ export default function Home() {
     </section>
   )
 }
-// script de animação de digitação do ola
-const text = "Olá, eu sou Bernardo!";
-let index = 0;
-let isDeleting = false;
-
-function typeEffect() {
-    const element = document.getElementById('ola');
-    if (!element) return;
-
-    if (!isDeleting && index < text.length) {
-        element.textContent = text.slice(0, index + 1);
-        index++;
-    } else if (isDeleting && index > 0) {
-        element.textContent = text.slice(0, index - 1);
-        index--;
-    }
-
-    if (index === text.length) {
-        setTimeout(() => {
-            isDeleting = true;
-        }, 3000);
-    } else if (index === 0) {
-        isDeleting = false;
-    }
-
-    const speed = isDeleting ? 50 : 100;
-    setTimeout(typeEffect, speed);
-}
-
-window.onload = typeEffect;
