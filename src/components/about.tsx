@@ -32,7 +32,7 @@ export default function About() {
         </h2>
 
         <p className="text-lg leading-relaxed mb-6">
-          Sou <span className="font-semibold">Bernardo Alves Nogueira</span>, tenho 18 anos sou formado em{" "}
+          Sou <span className="font-semibold">Bernardo Alves Nogueira</span>, tenho 18 anos, sou formado em{" "}
           <span className="text-indigo-400 font-medium">
             Técnico em Informática para Internet
           </span>{" "}
