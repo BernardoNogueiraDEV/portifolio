@@ -30,6 +30,13 @@ export default function Projects() {
               </p>
             <Button variant="secondary" onClick={() => window.open('https://rifa3ano.vercel.app', '_blank', 'noopener,noreferrer')}>Ver projeto</Button>
             </CardContent>
+                        <CardContent className="p-6">
+              <h4 className="text-2xl font-semibold mb-2">LawRisk</h4>
+              <p className="text-gray-300 mb-4">
+                Sistema de análise preditiva de riscos jurídicos com IA 
+              </p>
+            <Button variant="secondary" onClick={() => window.open('https://lawrisk.vercel.app', '_blank', 'noopener,noreferrer')}>Ver projeto</Button>
+            </CardContent>
           </Card>
         </div>
       </motion.div>
