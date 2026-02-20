@@ -47,7 +47,9 @@ export default function Home() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-3xl md:text-5xl font-bold mb-4" id="ola"></h1>
+        <h1 className="text-3xl md:text-5xl font-bold mb-4" id="ola">
+          Ola, eu sou Bernardo!
+        </h1>
         <h2 className="text-xl text-gray-300 mb-6">
           Desenvolvedor Web focado em soluções otimizadas e organizadas.
         </h2>
