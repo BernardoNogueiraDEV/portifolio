@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 
 export default function Contact() {
   const [name, setName] = useState('')
@@ -37,91 +36,77 @@ export default function Contact() {
   }
 
   return (
-    <section className="h-screen flex flex-col justify-center items-center text-center px-6">
-      <motion.h3
-        className="text-2xl md:text-4xl font-semibold mb-6"
-        initial={{ opacity: 0, y: -50 }}
+    <section id="contact" className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-24">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8 }}
+        className="w-full max-w-4xl"
       >
-        Entre em Contato
-      </motion.h3>
+        <h3 className="text-3xl md:text-4xl font-semibold mb-4 text-center">Entre em Contato</h3>
+        <p className="text-slate-300 mb-8 max-w-2xl mx-auto text-center">
+          Vamos conversar sobre projetos, oportunidades ou colaboracoes.
+        </p>
 
-      <motion.p
-        className="text-gray-300 mb-8 max-w-md"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8 }}
-      >
-        Ficarei feliz em conversar sobre projetos, oportunidades e colaborações.
-      </motion.p>
+        <form onSubmit={handleSubmit} className="grid gap-4">
+          <input
+            type="text"
+            placeholder="Seu nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full rounded-xl border border-slate-600 bg-slate-950/70 px-4 py-3 text-slate-100 outline-none transition focus:border-cyan-300/55"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Seu email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-xl border border-slate-600 bg-slate-950/70 px-4 py-3 text-slate-100 outline-none transition focus:border-cyan-300/55"
+            required
+          />
+          <textarea
+            placeholder="Sua mensagem"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-full h-32 resize-none rounded-xl border border-slate-600 bg-slate-950/70 px-4 py-3 text-slate-100 outline-none transition focus:border-cyan-300/55"
+            required
+          />
 
-      <motion.form
-        onSubmit={handleSubmit}
-        className="flex flex-col items-center space-y-4 mb-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
-      >
-        <input
-          type="text"
-          placeholder="Seu Nome"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full max-w-md px-4 py-2 text-white bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
-          required
-        />
-        <input
-          type="email"
-          placeholder="Seu Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full max-w-md px-4 py-2 text-white bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500"
-          required
-        />
-        <textarea
-          placeholder="Sua Mensagem"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          className="w-full max-w-md px-4 py-2 text-white bg-gray-800 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 h-32 resize-none"
-          required
-        />
-        <motion.button
-          type="submit"
-          className="text-lg md:text-xl text-white border border-gray-600 rounded-full px-6 py-3 hover:bg-gray-700 transition"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Enviar Mensagem
-        </motion.button>
-        {status && <p className="text-sm mt-2">{status}</p>}
-      </motion.form>
+          <button
+            type="submit"
+            className="mt-1 rounded-xl border border-cyan-300/45 bg-cyan-300/10 px-6 py-3 font-semibold text-cyan-100 transition hover:bg-cyan-300/20"
+          >
+            Enviar mensagem
+          </button>
 
-      <motion.a
-        href="https://www.linkedin.com/in/bernardo-nogueira-50b061379/"
-        className="text-lg md:text-xl text-white m-[10px] border border-gray-600 rounded-full px-6 py-3 hover:bg-gray-700 transition"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Linkedin
-      </motion.a>
-      <motion.a
-        href="https://github.com/BernardoNogueiraDEV"
-        className="text-lg md:text-xl text-white m-[10px] border border-gray-600 rounded-full px-6 py-3 hover:bg-gray-700 transition"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Github
-      </motion.a>
+          {status && <p className="text-sm text-slate-300">{status}</p>}
+        </form>
 
-      <motion.footer
-        className="fixed bottom-4 md:bottom-6 text-gray-500 text-sm"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
-      >
-        © {new Date().getFullYear()} Bernardo Nogueira — Desenvolvido com React, TypeScript e Tailwind CSS
-      </motion.footer>
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
+          <a
+            href="https://www.linkedin.com/in/bernardo-nogueira-50b061379/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-600 bg-slate-800/60 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/45 hover:text-cyan-100"
+          >
+            LinkedIn
+          </a>
+          <a
+            href="https://github.com/BernardoNogueiraDEV"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-600 bg-slate-800/60 px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/45 hover:text-cyan-100"
+          >
+            GitHub
+          </a>
+        </div>
+      </motion.div>
+
+      <footer className="mt-8 text-slate-500 text-sm text-center">
+        (c) {new Date().getFullYear()} Bernardo Nogueira - React, TypeScript e Tailwind CSS
+      </footer>
     </section>
   )
 }

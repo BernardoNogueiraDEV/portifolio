@@ -1,73 +1,58 @@
 import React from 'react'
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion'
 
 export default function About() {
   return (
     <section
-      id="About"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-20 bg-gray-900 text-white"
+      id="about"
+      className="min-h-screen flex items-center justify-center px-6 md:px-10 py-24"
     >
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full md:w-1/2 flex justify-center mb-10 md:mb-0"
-      >
-        <img
-          src="/euFormal.png"
-          alt="Formação"
-          className="rounded-2xl shadow-2xl w-48 h-48 md:w-72 md:h-72 object-cover border-4 border-indigo-500"
-        />
-      </motion.div>
+      <div className="mx-auto grid w-full max-w-[1400px] gap-10 md:grid-cols-2 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="flex justify-center md:justify-start"
+        >
+          <div className="relative w-full md:w-[48vw] max-w-[760px]">
+            <div className="absolute -inset-6 rounded-[2rem] bg-cyan-300/15 blur-2xl" />
+            <img
+              src="/euFormal.png"
+              alt="Bernardo Nogueira"
+              className="relative h-[48vh] md:h-[72vh] w-full rounded-[2rem] border border-cyan-300/30 shadow-2xl object-cover"
+            />
+          </div>
+        </motion.div>
 
-      {/* Texto da formação */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
-        className="w-full md:w-1/2 text-center md:text-left"
-      >
-        <h2 className="text-2xl md:text-4xl font-bold mb-6 text-indigo-400">
-          Sobre Mim
-        </h2>
-
-        <p className="text-lg leading-relaxed mb-6">
-          Sou <span className="font-semibold">Bernardo Alves Nogueira</span>, tenho 18 anos, sou formado em{" "}
-          <span className="text-indigo-400 font-medium">
-            Técnico em Informática para Internet
-          </span>{" "}
-          pelo <span className="font-semibold">SENAI</span>. Durante o curso,
-          desenvolvi habilidades sólidas em{" "}
-          <span className="text-indigo-400">Desenvolvimento Web</span>,
-          trabalhando com tecnologias modernas e práticas de mercado.
-        </p>
-
-        <p className="text-lg leading-relaxed mb-6">
-          Também concluí o ensino médio na{" "}
-          <span className="font-semibold">
-            Escola Estadual Maria Anália Mendes Ferreira
-          </span>, conciliando estudos com projetos práticos na área de
-          tecnologia.
-        </p>
-
-        <p className="text-lg leading-relaxed mb-6">
-          Atualmente, continuo aprimorando meus conhecimentos em{" "}
-          <span className="text-indigo-400 font-medium">
-            React, TypeScript, JavaScript, PHP, MySQL, HTML, CSS, Java e SQL
-          </span>
-          , com foco em me tornar um desenvolvedor cada vez mais completo.
-        </p>
-
-        <p className="text-lg leading-relaxed mb-8">
-          Além da área técnica, curso{" "}
-          <span className="text-indigo-400 font-medium">Inglês na FISK</span>, onde
-          desenvolvo comunicação fluente e compreensão avançada do idioma.
-          Atualmente, possuo nível{" "}
-          <span className="text-indigo-400 font-medium">B2</span>, o que me
-          permite interagir com segurança em contextos profissionais e
-          acadêmicos internacionais.
-        </p>
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-2xl md:pl-4"
+        >
+          <p className="text-cyan-300 text-sm font-semibold tracking-[0.18em] uppercase mb-4">
+            Sobre Mim
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-slate-100 leading-tight">
+            Desenvolvedor focado em produto, qualidade e evolucao continua.
+          </h2>
+          <p className="text-slate-300 leading-relaxed mb-4 text-base md:text-lg">
+            Sou Bernardo Alves Nogueira, tecnico em Informatica para Internet pelo SENAI.
+            Atuo no desenvolvimento de aplicacoes web com foco em performance, clareza de codigo
+            e experiencia do usuario.
+          </p>
+          <p className="text-slate-300 leading-relaxed mb-4 text-base md:text-lg">
+            Trabalho principalmente com React, TypeScript, Next.js, Node.js e bancos relacionais,
+            construindo interfaces modernas e solucoes robustas para cenarios reais.
+          </p>
+          <p className="text-slate-300 leading-relaxed text-base md:text-lg">
+            Mantenho evolucao constante em arquitetura, boas praticas e colaboracao, com ingles
+            em progresso para atuar com mais eficiencia em contextos internacionais.
+          </p>
+        </motion.div>
+      </div>
     </section>
-  );
+  )
 }
