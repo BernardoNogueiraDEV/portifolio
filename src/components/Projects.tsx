@@ -59,6 +59,27 @@ export default function Projects() {
               </Button>
             </CardContent>
           </Card>
+
+
+          <Card className="group rounded-3xl border border-slate-700 bg-slate-900/65 overflow-hidden transition hover:-translate-y-1 hover:border-cyan-300/40 hover:shadow-[0_20px_60px_rgba(8,145,178,0.2)]">
+            <div className="h-52 w-full bg-[radial-gradient(circle_at_30%_20%,rgba(34,211,238,0.25),transparent_45%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,0.2),transparent_35%)] flex items-center justify-center border-b border-slate-700">
+              <h4 className="text-4xl font-extrabold tracking-tight text-cyan-100">BarberLog</h4>
+            </div>
+            <CardContent className="p-6">
+              <p className="mb-2 text-xs uppercase tracking-[0.2em] text-cyan-200">Saas de agendamento para barbearias</p>
+              <h4 className="text-2xl font-semibold mb-2">BarberLog</h4>
+              <p className="text-slate-300 mb-5">
+                Sistema de agendamento, controle de clientes e do financeiro.
+              </p>
+              <Button
+                variant="secondary"
+                className="rounded-xl border border-cyan-300/35 bg-cyan-300/10 text-cyan-100 hover:bg-cyan-300/20"
+                onClick={() => window.open('https://barberlog.vercel.app', '_blank', 'noopener,noreferrer')}
+              >
+                Ver projeto
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </motion.div>
     </section>
