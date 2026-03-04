@@ -18,7 +18,7 @@ export default function About() {
           <div className="relative w-full md:w-[48vw] max-w-[760px]">
             <div className="absolute -inset-6 rounded-[2rem] bg-cyan-300/15 blur-2xl" />
             <img
-              src="/euFormal.png"
+              src="/euFormal.jpg"
               alt="Bernardo Nogueira"
               className="relative h-[48vh] md:h-[72vh] w-full rounded-[2rem] border border-cyan-300/30 shadow-2xl object-cover"
             />
