@@ -20,7 +20,7 @@ export default function About() {
             <img
               src="/euFormal.jpg"
               alt="Bernardo Nogueira"
-              className="relative h-[48vh] md:h-[72vh] w-full rounded-[2rem] border border-cyan-300/30 shadow-2xl object-cover"
+              className="relative h-[45vh] md:h-[72vh] w-full rounded-[2rem] border border-cyan-300/30 shadow-2xl object-cover object-top"
             />
           </div>
         </motion.div>
